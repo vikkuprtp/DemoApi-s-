@@ -1,5 +1,4 @@
 package com.vp.iqnextintern1.models;
-
 import jakarta.persistence.*;
 
 @Entity

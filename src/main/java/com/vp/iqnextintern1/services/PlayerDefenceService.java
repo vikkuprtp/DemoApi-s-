@@ -1,7 +1,5 @@
 package com.vp.iqnextintern1.services;
-
 import com.vp.iqnextintern1.repositories.PlayerDefenceRepository;
-import com.vp.iqnextintern1.repositories.PlayerStatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +17,15 @@ public class PlayerDefenceService {
     }
     public List<Object> getAllPlayerDefence() {
         return new ArrayList<>(playerDefenceRepository.findAll());
-
     }
+    public List<Map<String,Object>> getOnlyPosition(int id){
+        return new ArrayList<>(playerDefenceRepository.getOnlyPosition(id));
+    }
+    public List<Map<String,Object>> getOnlyTackles(int id){
+        return new ArrayList<>(playerDefenceRepository.getOnlyTackles(id));
+    }
+    public List<Map<String,Object>> getOnlyTacklesWon(int id){
+        return new ArrayList<>(playerDefenceRepository.getOnlyTacklesWon(id));
+    }
+
 }

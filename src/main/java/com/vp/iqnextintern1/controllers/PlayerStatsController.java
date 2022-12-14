@@ -1,13 +1,10 @@
 package com.vp.iqnextintern1.controllers;
-
 import com.vp.iqnextintern1.exceptionhandler.GetResponsHandler;
-import com.vp.iqnextintern1.services.PlayerDefenceService;
 import com.vp.iqnextintern1.services.PlayerStatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
 
@@ -41,4 +38,42 @@ public class PlayerStatsController {
             return GetResponsHandler.generateCustomGetResponse(e.getMessage(),HttpStatus.MULTI_STATUS,null,bool);
         }
     }
+    @GetMapping("/apply-filter/no-of-goals")
+    public ResponseEntity<Object> getOnlyNoOfGoals(@RequestParam Integer id){
+        try{
+            List<Map<String,Object>> getOnlyNoOfGoals=playerStatisticService.getOnlyNoOfGoals(id);
+            boolean bool=true;
+            return GetResponsHandler.generateCustomGetResponse("success",HttpStatus.OK,getOnlyNoOfGoals,bool);
+        }catch(Exception e){
+            boolean bool=false;
+            return GetResponsHandler.generateCustomGetResponse(e.getMessage(),HttpStatus.MULTI_STATUS,null,bool);
+        }
+    }
+    @GetMapping("/apply-filter/only-by-DOB")
+    public ResponseEntity<Object> getOnlyDOB(@RequestParam Integer id){
+        try{
+            List<Map<String,Object>> getOnlyDOB=playerStatisticService.getOnlyDOB(id);
+            boolean bool=true;
+            return GetResponsHandler.generateCustomGetResponse("success",HttpStatus.OK,getOnlyDOB,bool);
+        }catch(Exception e){
+            boolean bool=false;
+            return GetResponsHandler.generateCustomGetResponse(e.getMessage(),HttpStatus.MULTI_STATUS,null,bool);
+        }
+    }
+
+    @GetMapping("/apply-filter/only-minutes-played")
+    public ResponseEntity<Object> getOnlyMinutesPlayed(@RequestParam Integer id){
+        try{
+            List<Map<String,Object>> getOnlyMinutesPlayed=playerStatisticService.getOnlyMinutesPlayed(id);
+            boolean bool=true;
+            return GetResponsHandler.generateCustomGetResponse("success",HttpStatus.OK,getOnlyMinutesPlayed,bool);
+        }catch(Exception e){
+            boolean bool=false;
+            return GetResponsHandler.generateCustomGetResponse(e.getMessage(),HttpStatus.MULTI_STATUS,null,bool);
+        }
+    }
+
+
+
+    
 }

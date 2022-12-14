@@ -1,7 +1,5 @@
 package com.vp.iqnextintern1.models;
-
 import jakarta.persistence.*;
-
 @Entity
 @Table(name = "player_playing_time", schema = "fifa", catalog = "")
 public class PlayerPlayingTime {
