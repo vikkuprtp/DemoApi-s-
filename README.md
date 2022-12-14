@@ -1,5 +1,4 @@
-MICROSERVICES***
+Created API workflows and fetching Api.
+Used Dumped Mysql file of database and imported the data into Model entities.
+API's created with filter options based on its column.
 
---Practise Project to get to know about the workflow of microservices.
---Creating User Entities with MySql database connection.
---creating 
